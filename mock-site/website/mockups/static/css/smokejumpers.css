@@ -1,0 +1,249 @@
+header {
+    display: flex;
+    /* border: solid; */
+    align-items: center;
+}
+
+h1, h2 {
+    font-family: 'Inter', sans-serif;
+}
+
+.grow-1 {
+    flex-grow: 1;
+}
+
+.hero {
+    min-height: 72vh;
+}
+
+.hero, .standard-page-container {
+    display: flex;
+    margin: 0em auto;
+    width: 70vw;
+    max-width: 1440px;
+}
+
+.standard.hero > * {
+    /* border: solid; */
+    flex-grow: 1;
+}
+
+.huge-image {
+    /* border: solid; */
+    min-height: 10em;
+    border-radius: 3em;
+    height: 100%;
+    /*     background: #0a0a0a; */
+    overflow: hidden;
+    background: url("/static/images/smokejumpers/p2.png");
+    /*     height: inherit; */
+    background-position: 63% 91%;
+    background-size: 131%;
+}
+
+.standard.hero .right-cell {
+    flex-basis: 60%;
+    display: flex;
+    flex-direction: column;
+    /* border: solid; */
+    display: grid;
+    grid-template-rows: 1fr;
+}
+
+.left-cell ul li a {
+    /* border: solid; */
+    color: inherit;
+    /* display: block; */
+    display: flex;
+    padding: 0.4em 1em;
+    text-decoration: none;
+}
+
+.left-cell ul {
+    font-size: 1.5rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-weight: 600;
+}
+
+.logo {
+    font-weight: 800;
+    font-size: 1.9em;
+    letter-spacing: 1px;
+    padding: 0.5em 1.5em;
+}
+
+.account a {
+    padding: 2rem 3rem;
+}
+
+header .account a {
+    color: inherit;
+    font-size: 1.4rem;
+    text-decoration: none;
+}
+
+.account {
+    display: flex;
+}
+
+.logo-container {
+    display: flex;
+}
+
+.pseudo-image {
+    background: url("/static/images/smokejumpers/p2.png");
+    /* height: inherit; */
+    background-position: center 92%;
+    background-size: 137%;
+}
+
+header.fixed {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.left-cell {
+    margin-top: 0rem;
+    /* justify-content: left; */
+    display: grid;
+    /* align-items: center; */
+    grid-template-rows: 1fr auto;
+}
+
+.hero .header-spacer {
+    height: 0rem;
+    /* border: solid; */
+}
+
+.hero .flex-across {
+    flex-direction: row;
+    display: flex;
+    flex-grow: 1;
+    width: 100%;
+}
+
+.flex-down {
+    flex-direction: column;
+}
+
+.flex-down.hero .left-cell {
+    flex-basis: 30%;
+}
+
+.flex-down.standard.hero .right-cell {
+    flex-grow: 1;
+}
+
+.hero.standard.flex-down {
+    /* min-height: 100vh; */
+}
+
+.flex-down.hero .header-spacer {
+    height: 7rem;
+    flex-grow: 0;
+}
+
+.flex-grow {
+    flex-grow: 1;
+}
+
+.flex-down.standard.hero .right-cell {
+    flex-grow: 1;
+}
+
+.header-spacer {}
+
+a.call-to-action {
+    color: inherit;
+    font-size: 2rem;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 1px;
+    background: #000;
+    padding: 1rem 2.3rem;
+    border-radius: 0.5em;
+    display: inline-flex;
+}
+
+.action-container {
+    justify-content: flex-start;
+    display: grid;
+    align-items: end;
+    margin-bottom: 3rem;
+}
+
+.align-center {
+    align-items: center;
+    display: flex;
+}
+
+.hidden {
+    display: none;
+}
+
+.supersize h2 {
+    font-size: 4.5em;
+    font-weight: 500;
+    line-height: 1.3em;
+    margin: 0;
+    letter-spacing: 0.3px;
+    text-decoration-skip-ink: auto;
+    text-decoration: underline;
+    text-decoration-color: #a3c9e0;
+    text-decoration-thickness: 0.11em;
+    text-underline-offset: .11em;
+    background: linear-gradient(141deg, #ea612d, #7d5ea2, #19a7e9, #3c2d66);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.supersize .left-cell p {
+    font-size: 2em;
+    margin: 2em 0em;
+    line-height: 1.4;
+    letter-spacing: 0.4px;
+}
+
+.supersize.standard-page-container {
+    grid-template-columns: 0.75fr 0.35fr;
+    display: grid;
+    margin-top: 5vh;
+}
+
+.hero .huge-image, .hero .brand-title {
+    grid-area: 1/1/1/1;
+}
+
+.hero .brand-title {
+    /* font-size: 3rem; */
+    /* color: black; */
+    /* font-weight: 800; */
+    justify-content: flex-start;
+    display: grid;
+    /* align-items: center; */
+    /* align-content: end; */
+    padding: 2em;
+    justify-content: end;
+}
+
+.hero .brand-title h1 {
+    font-size: 4rem;
+    color: #265fc2;
+    font-weight: 800;
+    /* background: linear-gradient(141deg, #ea612d, #7d5ea2, #19a7e9, #3c2d66); */
+    /* mix-blend-mode: multiply; */
+    /* color: white; */
+    color: black;
+    /* padding: 0rem 3.5rem 2rem 1rem; */
+    background-blend-mode: color-burn;
+    text-transform: uppercase;
+    /* letter-spacing: 6px; */
+    border-radius: 0.2em;
+    /* border: solid 2px #000000; */
+    margin: 0;
+    /* text-decoration: underline; */
+    line-height: 1;
+}

@@ -1,0 +1,1 @@
+https://www.donaldegray.com/skills-for-software-smokejumpers/

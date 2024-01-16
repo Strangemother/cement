@@ -1,0 +1,39 @@
+{% extends "mockups/base.html" %}
+{% load static link %}
+
+{% block body_class %}template-homepage{% endblock %}
+
+{% block content %}
+
+{% include "./head/inter-google-font.html" %}
+
+{% css 'css/base.css' %}
+{% css 'css/sphinx.css' %}
+
+<header>
+    {# nav #}
+</header>
+
+<main class="fixed-max-page-width">
+
+    <div class="head-space"></div>
+
+    <div class="hero">
+        <section>
+            <h1>Crafting</h1>
+            <h2>Immersive Digital Stories Through Technology </h2>
+        </section>
+    </div>
+
+    {% include "mockups/block/primary.html" %}
+
+    {% include "mockups/block/we-box.html" %}
+
+    {% include "mockups/block/section.html" %}
+    {% include "mockups/block/section-two.html" %}
+    {% include "mockups/block/slider.html" %}
+    {% include "mockups/block/superlist-rows.html" %}
+    {% include "mockups/block/call-to-action.html" %}
+
+</main>
+{% endblock content %}

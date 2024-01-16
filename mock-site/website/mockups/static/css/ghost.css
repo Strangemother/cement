@@ -1,0 +1,59 @@
+.hero.ghost {
+    display: grid;
+    grid-template-columns: 0.25fr 0.8fr;
+    /* width: 70vw; */
+    margin: 4em auto 5em;
+    /* max-width: 1440px; */
+    /* outline: solid 1px darkred; */
+    overflow: auto;
+}
+
+.ghost .huge-image {
+    /* padding-top: 5em; */
+    display: grid;
+    /* border: solid; */
+    /* border-radius: 0; */
+    /* mix-blend-mode: darken; */
+    grid-area: 1/1/1/1;
+    /* background-repeat: no-repeat; */
+    background: none;
+    /* background-size: 128%; */
+    background-position: center 92%;
+}
+
+.ghost .right-cell {
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-auto-rows: 1fr;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+
+.ghost-hero-container {
+    display: flex;
+    /* border: solid; */
+}
+
+.ghost .pseudo-image {
+    /* height: inherit; */
+    border-radius: 3em;
+    /* overflow: hidden; */
+    margin-top: 5em;
+    /* border: solid 1px black; */
+    z-index: 1;
+    /* background-size: 93em; */
+    /* background-size: auto; */
+    /* background-position: -10em -33em; */
+    /* background-attachment: fixed; */
+    /* background-repeat: no-repeat; */
+    background-color: #222;
+}
+
+
+.ghost .left-cell ul {
+    margin: 1em 0;
+}
