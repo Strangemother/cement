@@ -184,7 +184,7 @@ a.call-to-action {
     display: none;
 }
 
-.supersize h2 {
+.supersize h2, h2.supersize {
     font-size: 4.5em;
     font-weight: 500;
     line-height: 1.3em;

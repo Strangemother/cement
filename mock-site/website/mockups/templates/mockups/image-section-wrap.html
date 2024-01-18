@@ -1,0 +1,17 @@
+{% load static %}
+<section>
+    <div class="image-info-container {{ classes }}">
+        <div class="image-container">
+            <img src="{% static image %}">
+        </div>
+        <div class="text-content-container">
+            <div class="text-content">
+                {% if wrap.content %}
+                    {{ wrap.content }}
+                {% else %}
+                    <p>{% lorem 20 w %}</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>

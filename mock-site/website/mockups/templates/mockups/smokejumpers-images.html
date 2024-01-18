@@ -1,0 +1,74 @@
+{% extends "mockups/base.html" %}
+{% load static link trim %}
+
+{% block body_class %}template-homepage{% endblock %}
+
+{% block content %}
+
+{# {% include "./head/inter-google-font.html" %} #}
+{% include "./head/noto-sans-google-font.html" %}
+{#  {% include "./head/noto-serif-google-font.html" %} #}
+{% css 'css/base.css' %}
+{% css 'css/smokejumpers.css' %}
+{% css 'css/smokejumpers-images.css' %}
+{% css 'css/ghost.css' %}
+
+<header class="fixed">
+    {# nav #}
+
+    <div class="logo-container">
+        <div class="logo">BRAND</div>
+    </div>
+    <div class="spacer grow-1"></div>
+    <div class="account"><a href="#">User</a></div>
+</header>
+
+<main>
+
+    <div class="paragraph-container supersize standard-page-container">
+        <div class="left-cell">
+            <h2>Rapid Response Specialists in Technology</h2>
+            <p>Smokejumpers are highly specialized IT professionals adept at providing rapid, effective solutions in critical software development scenarios.</p>
+            <div class="action-container">
+                <a class="call-to-action" href="#">Contact Us</a>
+            </div>
+        </div>
+        <div class="right-cell">
+            <!-- nothing yet -->
+        </div>
+    </div>
+
+    {% wrap "mockups/image-section-wrap.html" with classes='' image='images/smokejumpers/p2.png' %}
+        <h2 class="supersize">Multicoloured Digital Smoke</h2>
+        <p>{% lorem 20 w %}</p>
+    {% endwrap %}
+
+    {% wrap "mockups/image-section-wrap.html" with classes='switch' image='images/smokejumpers/p2.png' %}
+        <h2 class="supersize">Multicoloured Digital Smoke</h2>
+        <p>{% lorem 20 w %}</p>
+    {% endwrap %}
+
+    {% wrap "mockups/image-section-wrap.html" with classes='' image='images/smokejumpers/p1.png' %}{% endwrap %}
+
+    {% wrap "mockups/image-section-wrap.html" with classes='switch' image='images/smokejumpers/rr.png' %}{% endwrap %}
+    {% wrap "mockups/image-section-wrap.html" with classes='switch' image='images/smokejumpers/rr2.png' %}{% endwrap %}
+
+{% with ''|center:25 as range %}
+{% for rval in range %}
+    <ul>
+    {%  with iurl="images/smokejumpers/"|add:forloop.counter|add:'.png' %}
+        <li>
+
+        {{ forloop.counter }}
+        {{ iurl }}
+       {% wrap "mockups/image-section-wrap.html" with classes='switch' image=iurl %}{% endwrap %}
+
+        </li>
+
+    {% endwith %}
+    </ul>
+{% endfor %}
+{% endwith %}
+
+</main>
+{% endblock content %}
