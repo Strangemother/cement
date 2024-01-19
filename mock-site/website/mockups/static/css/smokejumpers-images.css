@@ -9,15 +9,18 @@
 
 .image-info-container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(30em, 1fr));
+  grid-template-columns: .55fr .45fr;
   grid-template-rows: 1fr;
-  gap: 0px 0px;
+  gap: 0;
   grid-auto-flow: column;
   grid-template-areas:
     "image text";
   align-self: center;
+  /* flex-wrap: wrap; */
+  /* grid-gap:  0; */
 }
-.image-info-container.switch {  
+.image-info-container.switch {
     grid-template-areas:
     "text image";
 }
@@ -31,6 +34,7 @@
 .image-container {
     display: flex;
     /* padding: 0 4em; */
+    position: relative;
 }
 
 img {
@@ -38,7 +42,8 @@ img {
     /* border-radius: 0.5em; */
     /* display: inline-flex; */
     /* height: auto; */
-    /* object-fit: contain; */
+    object-fit: contain;
+    min-width: 29em;
 }
 
 .text-content-container {
@@ -65,6 +70,9 @@ img {
     text-decoration-thickness: 2px;
     text-decoration-color: black;
     font-weight: 600;
+    font-weight: 100;
+    font-size: 5rem;
+    text-decoration: none;
 }
 
 
@@ -95,4 +103,177 @@ main section {
 .supersize.standard-page-container {
     height: 70vh;
     padding: 15vh;
+}
+
+ul.image-superlist {
+    display: grid;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    /* gap: 10em 0; */
+}
+
+.ai-watermark {
+    position: absolute;
+    bottom: 2em;
+    right: 2em;
+    /* margin: 2em; */
+    margin-left: 2em;
+    padding: 0em;
+    max-height: -webkit-fill-available;
+    overflow: hidden;
+    margin-top: 1em;
+    display: grid;
+    grid-auto-rows: auto 1fr;
+}
+
+span.present-text {}
+
+.not-ai .ai-watermark {
+    display: none;
+}
+
+.ai-watermark span.present-text {
+    font-size: 0.8rem;
+    font-weight: 600;
+    background: #000;
+    letter-spacing: 1px;
+    padding: 0.8em;
+    display: flex;
+    border-radius: 0.4em;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.2;
+    transition: opacity .3s ease;
+    border: solid 1px #000000d1;
+    background: #00000000;
+}
+
+.image-container:hover .ai-watermark span.present-text, .image-container:focus .ai-watermark span.present-text {
+    opacity: 0.2;
+}
+
+.ai-watermark .hover-text {
+    color: inherit;
+    background: #111;
+    padding: 5em;
+    overflow: auto;
+    /* border: solid; */
+    /* height: 69%; */
+}
+
+.image-container .ai-watermark span.present-text:hover,
+.image-container .ai-watermark span.present-text:focus {
+  opacity: .8;
+  background: #111;
+}
+
+.swatch-container {
+    display: grid;
+}
+
+
+ul.swatch-list {
+    display: grid;
+    margin: 0;
+    padding: 0;
+    /* border: solid; */
+    justify-content: center;
+    grid-auto-flow: column;
+    list-style: none;
+    gap: 3em;
+    align-content: space-evenly;
+    padding: 10rem 0 15rem;
+    border-top: solid 1px #000000cf;
+}
+
+li.swatch-item {border: solid 1px #000000ad;aspect-ratio: 1.1;display: grid;height: 20em;justify-content: center;align-content: center;}
+
+li.view-split {
+    display: grid;
+    min-height: 35em;
+}
+
+ul.image-superlist.big-split {
+    gap: 15em 0;
+}
+
+li.swatch-item.cell-b {
+    background: #2b3e8a;
+}
+
+.over-split .image-info-container.switch {
+    grid-template-columns: .45fr .55fr;
+}
+
+
+.cloud-a {
+    background-image: url('/static/images/clouds/news_wolke1.png');
+}
+
+.cloud-b {
+    background-image: url('/static/images/clouds/tickets_wolke2.png');
+}
+
+.cloud-c {
+    background-image: url('/static/images/clouds/event_wolke2.png');
+}
+
+.cloud-d {
+    background-image: url('/static/images/clouds/tickets_wolke2.png');
+}
+
+.small-cloud-a {
+    background-image: url('/static/images/clouds/event_wolke6.png');
+}
+
+.small-cloud-b {
+    background-image: url('/static/images/clouds/event_wolke5.png');
+}
+
+/* big ones */
+.big-cloud-a {
+    background-image: url('/static/images/clouds/tickets_wolke1.png');
+}
+
+.big-cloud-b {
+    background-image: url('/static/images/clouds/riders_wolke2.png');
+}
+
+
+.cloud {
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.paragraph-container.supersize.standard-page-container {
+    background-image: url();
+}
+
+.hero-cloud.big-cloud-a {
+    background-repeat: no-repeat;
+    background-position: right 55vh;
+    background-size: 44vw;
+    /* background-attachment: fixed; */
+}
+
+.left-cell.small-cloud-a {
+    background-repeat: no-repeat;
+    background-size: 6em;
+    background-position: left top;
+}
+
+
+.header-cloud {
+    min-width: 34em;
+    position: absolute;
+    min-height: 17em;
+    background-position: -9em -4em;
+    background-position: -8vw -7vh;
+    background-repeat: no-repeat;
+    background-size: 33em;
+    opacity: 1;
+    z-index: -1;
 }

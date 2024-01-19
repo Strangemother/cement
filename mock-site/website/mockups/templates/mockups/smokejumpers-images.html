@@ -1,5 +1,5 @@
 {% extends "mockups/base.html" %}
-{% load static link trim %}
+{% load static link trim strings %}
 
 {% block body_class %}template-homepage{% endblock %}
 
@@ -13,11 +13,11 @@
 {% css 'css/smokejumpers-images.css' %}
 {% css 'css/ghost.css' %}
 
+<div class="header-cloud small-cloud-b"></div>
 <header class="fixed">
     {# nav #}
-
     <div class="logo-container">
-        <div class="logo">BRAND</div>
+        <div class="logo">CTSJ</div>
     </div>
     <div class="spacer grow-1"></div>
     <div class="account"><a href="#">User</a></div>
@@ -25,8 +25,11 @@
 
 <main>
 
+<div class="back-gradient">
+
+<div class="hero-cloud big-cloud-a">
     <div class="paragraph-container supersize standard-page-container">
-        <div class="left-cell">
+        <div class="left-cell small-cloud-a">
             <h2>Rapid Response Specialists in Technology</h2>
             <p>Smokejumpers are highly specialized IT professionals adept at providing rapid, effective solutions in critical software development scenarios.</p>
             <div class="action-container">
@@ -37,38 +40,109 @@
             <!-- nothing yet -->
         </div>
     </div>
+</div>
+</div>
 
-    {% wrap "mockups/image-section-wrap.html" with classes='' image='images/smokejumpers/p2.png' %}
+    <div class="swatch-container">
+
+        <ul class="swatch-list">
+            <li class="swatch-item cell-a">
+                <div class="swatch-cell">
+                    <div class="label">Primary</div>
+                    <div class="color">#444</div>
+                </div>
+            </li>
+            <li class="swatch-item cell-b">
+                <div class="swatch-cell">
+                    <div class="label">Secondary</div>
+                    <div class="color">#444</div>
+                </div>
+            </li>
+            <li class="swatch-item cell-c">
+                <div class="swatch-cell">
+                    <div class="label">Extras</div>
+                    <div class="color">#444</div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    {% wrap "mockups/image-section-wrap.html" with classes='' image='images/smokejumpers/v1/p2.png' %}
+        <h2 class="supersize">Jumping Into Action</h2>
+        <p>
+            We produced generated images for the new base branding and styles.
+        </p>
+
+    {% endwrap %}
+
+    {% wrap "mockups/image-section-wrap.html" with classes='switch' image='images/smokejumpers/v1/v1-jumper.png' %}
         <h2 class="supersize">Multicoloured Digital Smoke</h2>
         <p>{% lorem 20 w %}</p>
     {% endwrap %}
 
-    {% wrap "mockups/image-section-wrap.html" with classes='switch' image='images/smokejumpers/p2.png' %}
-        <h2 class="supersize">Multicoloured Digital Smoke</h2>
-        <p>{% lorem 20 w %}</p>
+    {% wrap "mockups/image-section-wrap.html" with classes='' image='images/smokejumpers/v1/p1.png' %}
+        <p>An example failcase, where the model chose to focus on other aspects of the same description</p>
     {% endwrap %}
 
-    {% wrap "mockups/image-section-wrap.html" with classes='' image='images/smokejumpers/p1.png' %}{% endwrap %}
+    {% wrap "mockups/image-section-wrap.html" with classes='switch' image='images/smokejumpers/v1/rr.png' %}
+        <p>Another failcase presenting the hallucanagentic direction.</p>
+    {% endwrap %}
 
-    {% wrap "mockups/image-section-wrap.html" with classes='switch' image='images/smokejumpers/rr.png' %}{% endwrap %}
-    {% wrap "mockups/image-section-wrap.html" with classes='switch' image='images/smokejumpers/rr2.png' %}{% endwrap %}
+    {% wrap "mockups/image-section-wrap.html" with classes='switch not-ai' image='images/smokejumpers/v1/rr2.png' %}
+        <h2>Manual Alterations</h2>
+        <p>
+            Some changes through through team feedback.
+        </p>
+    {% endwrap %}
 
-{% with ''|center:25 as range %}
-{% for rval in range %}
-    <ul>
-    {%  with iurl="images/smokejumpers/"|add:forloop.counter|add:'.png' %}
-        <li>
 
-        {{ forloop.counter }}
-        {{ iurl }}
-       {% wrap "mockups/image-section-wrap.html" with classes='switch' image=iurl %}{% endwrap %}
+    <section class="day-break">
+        <h1 class="color">Next Day.</h1>
+        <p>After a team review, we aggregated feedback.</p>
 
-        </li>
+        <ul>
+            <li>Muted Colour Spectrum</li>
+            <li>Image Symmetry</li>
+            <li>Character Fidelity </li>
+            <li>Rendering Coherence</li>
+        </ul>
 
-    {% endwith %}
+        <p>With this we retrained the model to fit these parameters.</p>
+    </section>
+
+
+    <section class="day-break">
+        <p>We seed our newly trained model with a range of brand graphics, high-definition logos, and Website heros.</p>
+
+        <div class="highlight note">
+            <p>Pick your favourites. They will be utilised as a direction for brand design.</p>
+        </div>
+    </section>
+
+
+
+
+    <ul class="image-superlist big-split over-split">
+        {% for imgdef in definitions %}
+            {% cycle 'cloud-a' 'cloud-b' 'cloud-c' 'cloud-d' as cloud silent %}
+            {% if imgdef.is_break %}
+                <!-- splitter. -->
+                <li class="view-split">
+                    <div class="cloud-container">
+                        <div class="cloud {{ cloud }}">
+                            <!-- CSS Cloud. -->
+                        </div>
+                    </div>
+                </li>
+            {% else %}
+                <li>
+                    {% cycle '' 'switch' as switchclasses silent %}
+                    {% str_merge "images/smokejumpers/" imgdef.path as iurl %}
+                    {% wrap "mockups/image-section-wrap.html" with classes=switchclasses image=iurl %}{% endwrap %}
+                </li>
+            {% endif %}
+        {% endfor %}
     </ul>
-{% endfor %}
-{% endwith %}
 
 </main>
 {% endblock content %}

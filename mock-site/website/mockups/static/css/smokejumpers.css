@@ -160,11 +160,11 @@ a.call-to-action {
     color: inherit;
     font-size: 2rem;
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 300;
     letter-spacing: 1px;
     background: #000;
-    padding: 1rem 2.3rem;
-    border-radius: 0.5em;
+    padding: 1rem 3rem;
+    border-radius: 1.5em;
     display: inline-flex;
 }
 
@@ -193,7 +193,7 @@ a.call-to-action {
     text-decoration-skip-ink: auto;
     text-decoration: underline;
     text-decoration-color: #a3c9e0;
-    text-decoration-thickness: 0.11em;
+    text-decoration-thickness: 0.05em;
     text-underline-offset: .11em;
     background: linear-gradient(141deg, #ea612d, #7d5ea2, #19a7e9, #3c2d66);
     -webkit-background-clip: text;
@@ -246,4 +246,8 @@ a.call-to-action {
     margin: 0;
     /* text-decoration: underline; */
     line-height: 1;
+}
+
+li.swatch-item.cell-a {
+    background: #cf3e27;
 }
