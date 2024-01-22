@@ -1,0 +1,17 @@
+{% load strings %}
+
+{%  include "./random_list.html" with type='ul' min=3 max=7 %}
+
+<p>{% lorem 30 w %}</p>
+
+{%  include "./random_list.html" with type='ol' min_word=3 max_word=8 %}
+
+{% random_int 3 6 as rand_range_count %}
+
+<ol>
+    {% range rand_range_count as rand_range %}
+    {% for index in rand_range %}
+        {% random_int 3 8 as rand_w %}
+        <li>{% lorem rand_w w random %}</li>
+    {% endfor %}
+</ol>

@@ -1,0 +1,51 @@
+{% load strings %}
+
+<h2>Ordered Lists</h2>
+{% range 5 as five_range %}
+<ol>
+    {% for index in five_range %}
+    {% random_int 3 10 as rand_w %}
+    <li>{% lorem rand_w w random %}</li>
+    {% endfor %}
+</ol>
+
+{% random_int 3 10 as rand_range_count %}
+<ol>
+    {% range rand_range_count as rand_range %}
+    {% for index in rand_range %}
+        {% random_int 3 10 as rand_w %}
+        <li>{% lorem rand_w w random %}</li>
+    {% endfor %}
+</ol>
+
+<h3>Larger Ordered Lists</h3>
+
+{% random_int 10 20 as rand_range_count %}
+<ol>
+    {% range rand_range_count as rand_range_2 %}
+    {% for index in rand_range_2 %}
+    {% random_int 20 40 as rand_w %}
+    <li>{% lorem rand_w w random %}</li>
+    {% endfor %}
+</ol>
+
+<h3>Nested Ordered Lists</h3>
+
+{% random_int 3 6 as rand_range_count %}
+<ol>
+    {% range rand_range_count as rand_range_3 %}
+    {% for index in rand_range_3 %}
+    {% random_int 20 40 as rand_w %}
+    <li>
+        {% lorem 1 p random %}
+         <ol>
+            {% random_int 3 6 as rand_range_count %}
+            {% range rand_range_count as rand_range_4 %}
+            {% for index in rand_range_4 %}
+                {% random_int 20 40 as rand_w %}
+                <li>{% lorem rand_w w random %}</li>
+            {% endfor %}
+        </ol>
+    </li>
+    {% endfor %}
+</ol>

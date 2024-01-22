@@ -156,7 +156,7 @@ header.fixed {
 
 .header-spacer {}
 
-a.call-to-action {
+a.call-to-action, a.call-to-action:not([href*="//"]) {
     color: inherit;
     font-size: 2rem;
     text-decoration: none;
@@ -184,7 +184,7 @@ a.call-to-action {
     display: none;
 }
 
-.supersize h2, h2.supersize {
+.supersize h2, h2.supersize, .supersize h1, h1.supersize {
     font-size: 4.5em;
     font-weight: 500;
     line-height: 1.3em;
@@ -248,6 +248,8 @@ a.call-to-action {
     line-height: 1;
 }
 
-li.swatch-item.cell-a {
-    background: #cf3e27;
-}
+li.swatch-item.cell-a {/*     background: #cf3e27; */background: linear-gradient(141deg, #ea612d -5%, #7d5ea2 82%);}
+
+li.swatch-item.cell-b {/*     background: #cf3e27; */background: linear-gradient(141deg, #7d5ea2 15%, #19a7e9 114%);}
+
+li.swatch-item.cell-c {/*     background: #cf3e27; */background: linear-gradient(141deg, #19a7e9 5%, #3c2d66 102%);}

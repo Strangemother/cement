@@ -1,0 +1,14 @@
+{% load strings %}
+{% firstof min 3 as min_count_val %}
+{% firstof max 6 as max_count_val %}
+{% random_int min_count_val max_count_val as rand_range_count %}
+{% range rand_range_count as rand_range %}
+{% firstof type 'ul' as tag %}
+{% firstof min_word 3 as min_val %}
+{% firstof max_word 8 as max_val %}
+<{{tag}}>
+    {% for index in rand_range %}
+        {% random_int min_val max_val as rand_w %}
+        <li>{% lorem rand_w w random %}</li>
+    {% endfor %}
+</{{tag}}>

@@ -17,7 +17,13 @@
                 {% else %}
                     {# <p>{% lorem 20 w %}</p> #}
                 {% endif %}
+
             </div>
+            {% if vote is not false %}
+                <!-- no voting container -->
+            {% else %}
+                {% include "./smokejumpers/vote-container.html" %}
+            {% endif %}
         </div>
     </div>
 </section>

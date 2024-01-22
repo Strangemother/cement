@@ -3,6 +3,8 @@ from trim.views import TemplateView
 
 class ViewBreak(object):
     is_break = True
+    def __init__(self, **kw):
+        self.__dict__.update(kw)
 
 
 class ImgDef(object):
@@ -37,7 +39,9 @@ IMAGES = (
     ImgDef('high-c.png'),
     ImgDef('spot-a.png'),
 
-    ViewBreak(),
+    ViewBreak(
+        footer_template_name='mockups/smokejumpers/viewbreak-heros.html'
+        ),
     ImgDef('hero/15.png'),
     ImgDef('hero/18.png'),
     ImgDef('hero/19.png'),

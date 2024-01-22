@@ -13,6 +13,7 @@ urlpatterns = urls.as_templates(
     # home=('mockup/home/', 'mockup/home.html'),
     # v1_article=('mockup/article/', 'mockup/v1-article.html'),
     # advert_cell=('advert/1/', 'small_adverts.html')
+    smokejumpers_design=('smokejumpers/design/', 'mockups/smokejumpers/smokejumpers-design.html'),
 )
 
 urlpatterns += urls.paths_named(views,

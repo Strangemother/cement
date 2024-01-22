@@ -1,0 +1,35 @@
+{% extends "mockups/base.html" %}
+{% load static link trim strings %}
+
+{% block body_class %}template-homepage{% endblock %}
+
+{% block content %}
+
+{# {% include "./head/inter-google-font.html" %} #}
+{% include "../head/noto-sans-google-font.html" %}
+{#  {% include "./head/noto-serif-google-font.html" %} #}
+{% include "../head/google-icon-font.html" %}
+{% css 'css/base.css' %}
+{% css 'css/smokejumpers.css' %}
+{% css 'css/smokejumpers-images.css' %}
+{% css 'css/ghost.css' %}
+
+{% block header_clouds %}
+<div class="header-cloud small-cloud-b"></div>
+<div class="hero-cloud big-cloud-a based"></div>
+{% endblock header_clouds %}
+
+
+<header class="fixed">
+    {# nav #}
+    <div class="logo-container">
+        <div class="logo">SJ</div>
+    </div>
+    <div class="spacer grow-1"></div>
+    <div class="account"><a href="#">User</a></div>
+</header>
+
+<main>
+{% block main_content %}{% endblock main_content %}
+</main>
+{% endblock content %}
