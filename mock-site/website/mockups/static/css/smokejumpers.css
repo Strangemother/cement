@@ -1,7 +1,8 @@
-header {
+nav > header {
     display: flex;
     /* border: solid; */
-    align-items: center;
+    min-height: 13em;
+    flex-direction: column;
 }
 
 h1, h2 {
@@ -103,6 +104,7 @@ header.fixed {
     position: fixed;
     top: 0;
     width: 100%;
+    display: flex;
 }
 
 .left-cell {
@@ -253,3 +255,124 @@ li.swatch-item.cell-a {/*     background: #cf3e27; */background: linear-gradient
 li.swatch-item.cell-b {/*     background: #cf3e27; */background: linear-gradient(141deg, #7d5ea2 15%, #19a7e9 114%);}
 
 li.swatch-item.cell-c {/*     background: #cf3e27; */background: linear-gradient(141deg, #19a7e9 5%, #3c2d66 102%);}
+
+
+nav {
+    /* border-right: solid 1px #279ee0; */
+    display: grid;
+    position: fixed;
+    height: 100vh;
+    top: 0;
+    /* position: sticky; */
+    box-sizing: border-box;
+    min-width: 15rem;
+    background: hsl(225deg 22% 11% / 79%);
+    background: #101113;
+    /* background: linear-gradient(45deg, black, transparent); */
+    resize: both;
+    grid-template-rows: auto 1fr min-content;
+    z-index: 1;
+    /* overflow: hidden; */
+}
+/* 
+nav > ul.main-nav::-webkit-resizer {
+    background-color: #0e0d0d;
+}
+ */
+nav > ul.main-nav {
+    resize: horizontal;
+    overflow: auto;
+    overflow-y: scroll;
+    color: #eee;
+    margin: 0;
+    padding: 0 1.5rem;
+    list-style: none;
+    /* border-top: solid 1px #000; */
+    padding: 1em 0 0 1rem;
+    max-width: 30vw;
+    overscroll-behavior-inline: auto;
+    min-width: -webkit-fill-available;
+}
+
+nav ul {
+    color: inherit;
+    margin: 0;
+    padding: 0em 0 0 1.5rem;
+    list-style: none;
+}
+
+/* nav .main-nav a:not([href*="//"]),  */
+body nav .main-nav a:hover, 
+body nav .main-nav a:focus {
+    /* color: #d86040; */
+    border-bottom: solid 1px black;
+    animation: colorSpin 3s;
+    animation-direction: alternate-reverse;
+    animation-iteration-count: infinite;
+    transition: border-color 0.3s ease-in;
+}
+
+@keyframes colorSpin {
+  from {
+    /* margin-left: 100%; */
+    /* width: 300%; */
+    color: #d86040;
+    /* border: solid 1px; */
+  }
+
+  50% {
+    /* margin-left: 0%; */
+    /* width: 100%; */
+    color: #4e80c3;
+  }
+    
+  to {
+    /* margin-left: 0%; */
+    /* width: 100%; */
+    color: #2e609c;
+  }
+}
+
+nav .main-nav a:not([href*="//"]), nav .main-nav a {
+    color: inherit;
+    text-decoration: none;
+    font-size: 1.2rem;
+    display: flex;
+    /* border: solid; */
+    padding: 0.2em 0 0.2em 0.5em;
+    /* outline: solid 1px red; */
+    border-bottom: solid 1px transparent;
+}
+
+nav a:not([href*="//"]), 
+nav a {
+    color: inherit;
+    text-decoration: none;
+    font-size: 1rem;
+    display: flex;
+    /* border: solid; */
+}
+
+
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: #322f32 #050505;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 15px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #050505;
+    border-radius: 1em;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #322f32;
+    border-radius: 10px;
+    border: 1px dashed #000000;
+  }

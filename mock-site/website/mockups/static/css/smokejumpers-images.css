@@ -744,3 +744,12 @@ h5 a:not([href*="//"]) {
 .text-content table tr:first-child {
     border-top: none;
 }
+
+.menu-cloud.header-cloud.small-cloud-b {
+    opacity: .5;
+    /* z-index: 1; */
+    /* position: absolute; */
+    /* display: none; */
+}
+
+nav footer ul {padding: 0em 0em 1rem 1rem;font-size: 1rem;}
