@@ -18,4 +18,5 @@ urlpatterns = urls.as_templates(
 
 urlpatterns += urls.paths_named(views,
     smokejumpers_images=('SwatchImageListView', 'smokejumpers/images/',),
+    smokejumpers_form=('VeryFormView', 'smokejumpers/form/',),
 )

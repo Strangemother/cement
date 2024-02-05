@@ -263,10 +263,10 @@ section.section-a {
 
 .hero.v2 {
     display: grid;
-    justify-content: center;
     height: 100vh;
     /* border-bottom: solid 1px #000; */
     background: linear-gradient(333deg, #852588, #b738bb);
+    justify-content: center;
 }
 
 .hero.v2 .titles {

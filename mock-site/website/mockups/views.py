@@ -1,5 +1,7 @@
 from django.shortcuts import render
-from trim.views import TemplateView
+from trim.views import TemplateView, FormView
+from . import forms
+
 
 class ViewBreak(object):
     is_break = True
@@ -60,3 +62,17 @@ class SwatchImageListView(TemplateView):
 
     def get_image_definitions(self):
         return IMAGES
+
+
+
+class VeryFormView(FormView):
+    template_name = 'mockups/smokejumpers-form.html'
+    form_class = forms.VeryForm
+    # def get_context_data(self, **kwargs):
+    #     kwargs['definitions'] = self.get_image_definitions()
+    #     return super().get_context_data(**kwargs)
+
+    # def get_image_definitions(self):
+    #     return IMAGES
+
+

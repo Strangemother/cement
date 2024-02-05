@@ -30,9 +30,9 @@ dynamic = ['version']
 [tool.setuptools.package-data]
 portant_cement = ["*.js", "*.css","*.html"]
 
-# [project.scripts]
-# trim = 'trim.cli.primary:main'
-# trim-admin = 'trim.cli.primary:main_admin'
+[project.scripts]
+portland = 'portland.run:bin_main'
+portland-cement = 'portland.run:bin_main'
 
 [build-system]
 requires = ["setuptools>=61.0"]
