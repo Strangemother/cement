@@ -1,0 +1,109 @@
+
+<h3>Generic Table</h3>
+
+<p>{% lorem 30 w random %}</p>
+
+<table>
+  <tr>
+    <th>title1</th>
+    <th>title2</th>
+    <th>title3</th>
+  </tr>
+  <tr>
+    <td>{% lorem 2 w random %}</td>
+    <td>{% lorem 2 w random %}</td>
+    <td>{% lorem 2 w random %}</td>
+  </tr>
+  <tr>
+    <td>{% lorem 2 w random %}</td>
+    <td>{% lorem 2 w random %}</td>
+    <td>{% lorem 2 w random %}</td>
+  </tr>
+
+</table>
+
+<p>{% lorem 30 w random %}</p>
+
+<h3>Captioned Table</h3>
+
+
+<table>
+  <caption>
+    Dinosaurs in the Jurassic period
+  </caption>
+
+    <thead>
+      <tr>
+        <th id="purchase">Purchase</th>
+        <th id="location">Location</th>
+        <th id="date">Date</th>
+        <th id="evaluation">Evaluation</th>
+        <th id="cost">Cost (€)</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <th id="haircut">Haircut</th>
+        <td headers="location haircut">Hairdresser</td>
+        <td headers="date haircut">12/09</td>
+        <td headers="evaluation haircut">Great idea</td>
+        <td headers="cost haircut">30</td>
+      </tr>
+    </tbody>
+
+</table>
+
+<h3>Nested Table</h3>
+
+
+<table>
+
+  <tr>
+    <th>{% lorem 2 w random %}</th>
+    <th>{% lorem 2 w random %}</th>
+    <th>{% lorem 2 w random %}</th>
+  </tr>
+
+  <tr>
+    <td>{% lorem 3 w random %}</td>
+    <td>{% lorem 2 w random %}</td>
+    <td>{% lorem 2 w random %}</td>
+  </tr>
+
+  <tr>
+    <td id="nested">
+        <table id="table2">
+            <tr>
+                <th>{% lorem 2 w random %}</th>
+                <th>{% lorem 2 w random %}</th>
+                <th>{% lorem 2 w random %}</th>
+            </tr>
+            <tr>
+              <td>{% lorem 1 w random %}</td>
+              <td>{% lorem 2 w random %}</td>
+              <td>{% lorem 1 w random %}</td>
+            </tr>
+            <tr>
+              <td>{% lorem 2 w random %}</td>
+              <td>{% lorem 1 w random %}</td>
+              <td>{% lorem 2 w random %}</td>
+            </tr>
+            <tr>
+              <td>{% lorem 1 w random %}</td>
+              <td>{% lorem 2 w random %}</td>
+              <td>{% lorem 3 w random %}</td>
+            </tr>
+        </table>
+    </td>
+    <td>{% lorem 2 w random %}</td>
+    <td>{% lorem 2 w random %}</td>
+  </tr>
+
+  <tr>
+    <td>{% lorem 2 w random %}</td>
+    <td>{% lorem 2 w random %}</td>
+    <td>{% lorem 2 w random %}</td>
+  </tr>
+
+</table>

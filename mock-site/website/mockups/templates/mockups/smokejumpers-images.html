@@ -1,0 +1,156 @@
+{% extends "mockups/smokejumpers/base.html" %}
+{% load static link trim strings %}
+
+{% block body_class %}template-homepage{% endblock %}
+
+{% block main_content %}
+
+{% wrap "mockups/smokejumpers/hero-wrap.html" %}
+<h2>Rapid Response Specialists in Technology</h2>
+<p>Smokejumpers are highly specialized IT professionals adept at providing rapid, effective solutions in critical software development scenarios.</p>
+
+<div class="action-container">
+    <a class="call-to-action" href="#">Contact Us</a>
+</div>
+{% endwrap %}
+
+
+    <div class="swatch-container">
+
+        <ul class="swatch-list">
+            <li class="swatch-item cell-a">
+                <div class="swatch-cell">
+                    <div class="label">Primary</div>
+                    <div class="color">#444</div>
+                </div>
+            </li>
+            <li class="swatch-item cell-b">
+                <div class="swatch-cell">
+                    <div class="label">Secondary</div>
+                    <div class="color">#444</div>
+                </div>
+            </li>
+            <li class="swatch-item cell-c">
+                <div class="swatch-cell">
+                    <div class="label">Extras</div>
+                    <div class="color">#444</div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <div class="page-break spacer"></div>
+
+    {% wrap "mockups/image-section-wrap.html" with classes='hover-votes' image='images/smokejumpers/v1/p2.png' %}
+        <h2 class="supersize">Jumping Into Action</h2>
+        <p>We generated a range of images using DALL-E for our new branding and styles.
+        </p>
+
+    {% endwrap %}
+
+    {% wrap "mockups/image-section-wrap.html" with classes='switch hover-votes' image='images/smokejumpers/v1/v1-jumper.png' %}
+        {# <h2 class="supersize">Multicoloured Digital Smoke</h2> #}
+     {#    <p>{% lorem 20 w %}</p> #}
+
+        <p>We trained a GPT 4 model upon brand aspects.</p>
+        <ul>
+            <li>First we asked the model to research "Software Developer Smokejumper"</li>
+            <li>Then asked it to aggregate a techincal definition by producing a well-written article.</li>
+            <li>We fed this information back into the model,
+            and applied further creativity choices.</li>
+            <li>First iteration were poor. For each image we retrained.</li>
+            <li>After cohesive results, we extended the training to include extended design choices to include website structures and text.</li>
+        </ul>
+    {% endwrap %}
+
+    {% wrap "mockups/image-section-wrap.html" with classes='hover-votes' image='images/smokejumpers/v1/p1.png' %}
+        <p>An example failcase, where the model chose to focus on other aspects of the same description</p>
+    {% endwrap %}
+
+    {% wrap "mockups/image-section-wrap.html" with  vote=false classes='hover-votes switch' image='images/smokejumpers/v1/rr.png' %}
+        <p>Another failcase presenting the hallucanagentic direction.</p>
+    {% endwrap %}
+
+    {% wrap "mockups/image-section-wrap.html" with classes='switch not-ai' image='images/smokejumpers/v1/rr2.png' %}
+        <h2>Manual Alterations</h2>
+        <p>
+            Some changes through through team feedback.
+        </p>
+    {% endwrap %}
+
+    <hr>
+    {% wrap "mockups/smokejumpers/text-content.html" %}
+        <section class="day-break">
+            <h1 class="color">Next Day.</h1>
+            <p>After a team review, we aggregated feedback.</p>
+
+            <ul>
+                <li>Muted Colour Spectrum</li>
+                <li>Image Symmetry</li>
+                <li>Character Fidelity </li>
+                <li>Rendering Coherence</li>
+            </ul>
+
+            <p>With this we retrained the model to fit these parameters.</p>
+        </section>
+
+        <section class="day-break">
+            <p>We seed our newly trained model with a range of brand graphics, high-definition logos, and Website heros.</p>
+
+            <div class="highlight note">
+                <p>Pick your favourites. They will be utilised as a direction for brand design.</p>
+            </div>
+        </section>
+
+    {% endwrap %}
+
+
+<div class="button-walker">
+
+    <div class="scroll-buttons actions">
+        <div class="buttons">
+            <a href='#' class="left button">
+                <i class="icon">chevron_left</i>
+            </a>
+            <a href='#' class="right button">
+                <i class="icon">chevron_right</i>
+            </a>
+        </div>
+    </div>
+
+
+    <ul class="image-superlist big-split over-split">
+        {% for imgdef in definitions %}
+            {% cycle 'cloud-a' 'cloud-b' 'cloud-c' 'cloud-d' as cloud silent %}
+            {% if imgdef.is_break %}
+                <!-- splitter. -->
+                <li class="view-split">
+                    <div class="grad-top"></div>
+                    {% cycle 'cloud-background-a' 'cloud-background-b' 'cloud-background-c' 'cloud-d' as cloud_background silent %}
+                    <div class="cloud-container {{ cloud_background }}">
+                        <div class="cloud {{ cloud }}">
+                            <!-- CSS Cloud. -->
+                        </div>
+                    </div>
+                    <div class="grad-bottom"></div>
+                    {% if imgdef.footer_template_name %}
+                        <div class="footer-container">
+                        {% include imgdef.footer_template_name %}
+                        </div>
+                    {% endif %}
+                </li>
+            {% else %}
+                <li>
+                    {% cycle '' 'switch' as switchclasses silent %}
+                    {% str_merge "images/smokejumpers/" imgdef.path as iurl %}
+                    {% wrap "mockups/image-section-wrap.html" with classes=switchclasses image=iurl %}{% endwrap %}
+                </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+
+</div>
+
+{% endblock main_content %}

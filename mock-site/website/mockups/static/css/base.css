@@ -1,0 +1,27 @@
+html {
+    background: #16171a;
+    /* background: url(/static/images/p1.png) #16171a; */
+    background-position: center top;
+    /* color: red!important; */
+    background-repeat: no-repeat;
+    /*font-family: 'Noto Serif', sans-serif;*/
+    font-family: 'Noto Sans', sans-serif;
+}
+
+body.template-homepage {
+    max-width: unset;
+    color: inherit;
+    /* max-width: 1320px; */
+    margin: 0 auto;
+    padding: 0;
+    /* margin: 0 15vw; */
+    color: #AAA;
+    /* outline: solid; */
+    min-height: 100em;
+}
+
+
+.fixed-max-page-width {
+    max-width: 1440px;
+    margin: auto;
+}

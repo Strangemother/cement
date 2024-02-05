@@ -1,0 +1,46 @@
+{% load strings trim %}
+<div class="design-layout">
+    <div class="text-content-container generic read-width">
+        <div class="text-content">
+
+            {% include "./titles.html" %}
+
+            <hr>
+
+            <p>{% lorem 10 w %}</p>
+
+            <details>
+              <summary>Details</summary>
+              Something small enough to escape casual notice.
+            </details>
+
+            {% include "./hyperlinks.html" %}
+            {% lorem 20 w %}
+            {% include "./lists.html" %}
+            {% lorem 20 w %}
+
+            <hr>
+
+            {% lorem 2 p %}
+
+            <h3>Block Quotes</h3>
+            {% lorem 1 p random %}
+            {% include "./blockquotes.html" %}
+
+            <h2>Text Block</h2>
+            {% lorem 1 p %}
+            {% lorem 1 p %}
+
+            <hr>
+
+            {% include "./forms.html" %}
+
+            {% include "./unordered-lists.html" %}
+            {% include "./ordered-lists.html" %}
+
+            <h2>Tables</h2>
+            {% include "./tables.html" %}
+
+        </div>
+    </div>
+</div>

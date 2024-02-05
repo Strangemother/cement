@@ -1,0 +1,26 @@
+{% load static link trim strings %}
+
+<div class="back-gradient">
+    <div class="dot-matrix">
+    </div>
+    <div class="paragraph-container supersize standard-page-container">
+        <div class="left-cell small-cloud-a">
+
+            {% if wrap.content %}
+                {{ wrap.content }}
+            {% else %}
+                <h2>Rapid Response Specialists in Technology</h2>
+                <p>Smokejumpers are highly specialized IT professionals adept at providing rapid, effective solutions in critical software development scenarios.</p>
+                <!--
+                <div class="action-container">
+                    <a class="call-to-action" href="#">Contact Us</a>
+                </div>
+                -->
+            {% endif %}
+        </div>
+        <div class="right-cell">
+            <!-- nothing yet -->
+        </div>
+    </div>
+    <div class="gradient-edge"></div>
+</div>

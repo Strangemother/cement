@@ -1,0 +1,173 @@
+{% extends "mockups/base.html" %}
+{% load static link %}
+
+{% block body_class %}template-homepage{% endblock %}
+
+{% block content %}
+
+{% include "./head/noto-sans-google-font.html" %}
+{#  {% include "./head/noto-serif-google-font.html" %} #}
+{% css 'css/base.css' %}
+{% css 'css/cinderblock.css' %}
+{# {% css 'css/ghost.css' %} #}
+
+<header class="fixed">
+    {# nav #}
+
+    <div class="logo-container">
+         <div class="logo">Cinderblock</div>
+    </div>
+    <div class="spacer grow-1"></div>
+    <div class="account"><a href="#">User</a></div>
+</header>
+
+<main>
+    <div class="backplate">
+        <div class="hero v1">
+            <div class="titles">
+                <h1>Cinderblock</h1>
+                <h2>V5</h2>
+            </div>
+            <div class="text-content-container">
+                <div class="text-content">
+                    The rapid development Python web framework built for developer, designer, and business.
+                </div>
+            </div>
+            <div class="image-container">
+                <div class="pseudo-image">
+                    <!-- CSS Applied hero image -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="hero v2">
+        <div class="titles">
+            <h1>Cinderblock</h1>
+            <h2>V5</h2>
+        </div>
+        <div class="text-content-container">
+            <div class="text-content">
+                {# {% lorem 20 w %} #}
+            </div>
+        </div>
+        <div class="image-container">
+            <div class="pseudo-image cinderblock-spot">
+                <!-- CSS Applied hero image -->
+            </div>
+        </div>
+    </div>
+
+    <div class="spacer page-break"></div>
+
+    <div class="sticky-header">
+
+        <header class="">
+            {# nav #}
+
+            <div class="logo-container visibility-hidden">
+                 <div class="logo">Cinderblock</div>
+            </div>
+            <div class="spacer grow-1"></div>
+            <div class="right-nav">
+                <ul>
+                    <li><a href="#">Github</a></li>
+                    <li><a href="#">Bitbucket</a></li>
+
+                </ul>
+            </div>
+            <div class="account visibility-hidden">
+                <a href="#">User</a>
+            </div>
+        </header>
+
+    </div>
+
+    <div class="spacer page-break"></div>
+
+    <div class="hero v2">
+
+        <div class="titles">
+            <h1>Install </h1>
+            <h2>V5</h2>
+        </div>
+        <div class="text-content-container">
+            <div class="text-content">
+                {# {% lorem 20 w %} #}
+            </div>
+        </div>
+        <div class="image-container">
+            <div class="pseudo-image cinderblock-9-3">
+                <!-- CSS Applied hero image -->
+            </div>
+        </div>
+    </div>
+
+
+    <section class="section-a columns">
+
+        <div class="image-container">
+            <div class="pseudo-image cinderblock-11">
+                <!-- CSS Applied hero image -->
+            </div>
+        </div>
+
+        <div class="column content-container">
+            <div class="pseudo-block">
+                <div class="column primary">
+                    <h3>Introduction To Excite.</h3>
+                    <div class="text-content">
+                        <p>{% lorem 30 w %}</p>
+                        <p>{% lorem 10 w %}</p>
+                    </div>
+
+                    <div class="call-to-action-container">
+                        <a class="call-to-action" href="#">Take a Look</a>
+                    </div>
+                </div>
+                <div class="column secondary">
+                    <div class="call-to-action-container header-spacer">
+                        <a class="call-to-action" href="#">Take a Look</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+    <section class="section-b columns">
+
+        <div class="image-container">
+            <div class="pseudo-image cinderblock-11">
+                <!-- CSS Applied hero image -->
+            </div>
+        </div>
+
+        <div class="column content-container">
+            <div class="pseudo-block">
+                <div class="column primary">
+                    <h3>Introduction To Excite.</h3>
+                    <div class="text-content">
+                        <p>{% lorem 30 w %}</p>
+                        <p>{% lorem 10 w %}</p>
+                    </div>
+
+                    <div class="call-to-action-container">
+                        <a class="call-to-action" href="#">Take a Look</a>
+                    </div>
+                </div>
+                <div class="column secondary">
+                    <div class="call-to-action-container header-spacer">
+                        <a class="call-to-action" href="#">Take a Look</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+</main>
+
+{% endblock content %}

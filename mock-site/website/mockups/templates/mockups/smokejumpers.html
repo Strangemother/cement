@@ -1,0 +1,131 @@
+{% extends "mockups/base.html" %}
+{% load static link %}
+
+{% block body_class %}template-homepage{% endblock %}
+
+{% block content %}
+
+{% include "./head/inter-google-font.html" %}
+{#  {% include "./head/noto-serif-google-font.html" %} #}
+{% css 'css/base.css' %}
+{% css 'css/smokejumpers.css' %}
+{% css 'css/ghost.css' %}
+
+<header class="fixed">
+    {# nav #}
+
+    <div class="logo-container">
+        <div class="logo">BRAND</div>
+    </div>
+    <div class="spacer grow-1"></div>
+    <div class="account"><a href="#">User</a></div>
+</header>
+
+<main>
+
+    <div class="hero standard hidden">
+        <!---
+        This one has a huge title+image+hero
+        and a short nav in the header.
+        --->
+        {# <div class="flex-across"> #}
+            <div class="left-cell">
+                <div class="align-center">
+                    <ul>
+                        <li>
+                            <a href="#">How We Can Help</a>
+                            {# <p class="extra"></p> #}
+                        </li>
+                        <li>
+                            <a href="#">Our Skills</a>
+                            {# <p class="extra"></p> #}
+                        </li>
+                        <li>
+                            <a href="#">Another Link</a>
+                            {# <p class="extra"></p> #}
+                        </li>
+                        <li>
+                            <a href="#">Articles</a>
+                            {# <p class="extra"></p> #}
+                        </li>
+                    </ul>
+                </div>
+                <div class="action-container">
+                    <a class="call-to-action" href="#">Contact Us</a>
+                </div>
+            </div>
+
+            <div class="right-cell">
+                <div class="huge-image">
+
+                    <div class="pseudo-image"></div>
+                </div>
+                <div class="brand-title">
+
+                </div>
+            </div>
+        {# </div> #}
+    </div>
+
+    <div class="hero standard flex-down">
+        <!---
+        This one has a huge title+image+hero
+        and a short nav in the header.
+        --->
+        <div class="header-spacer"></div>
+        <div class="flex-across">
+            <div class="left-cell">
+                <div class="align-center">
+                    <ul>
+                        <li>
+                            <a href="#">How We Can Help</a>
+                            {# <p class="extra"></p> #}
+                        </li>
+                        <li>
+                            <a href="#">Our Skills</a>
+                            {# <p class="extra"></p> #}
+                        </li>
+                        <li>
+                            <a href="#">Another Link</a>
+                            {# <p class="extra"></p> #}
+                        </li>
+                        <li>
+                            <a href="#">Articles</a>
+                            {# <p class="extra"></p> #}
+                        </li>
+                    </ul>
+                </div>
+                <div class="action-container">
+                    <a class="call-to-action" href="#">Contact Us</a>
+                </div>
+            </div>
+
+            <div class="right-cell">
+                <div class="huge-image">
+                    <div class="pseudo-image"></div>
+                </div>
+                <div class="brand-title">
+                    <h1>Smokejumpers</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="paragraph-container supersize standard-page-container">
+        <div class="left-cell">
+            <h2>Rapid Response Specialists in Technology</h2>
+            <p>Smokejumpers are highly specialized IT professionals adept at providing rapid, effective solutions in critical software development scenarios.</p>
+            <div class="action-container">
+                <a class="call-to-action" href="#">Contact Us</a>
+            </div>
+        </div>
+        <div class="right-cell">
+            <!-- nothing yet -->
+        </div>
+    </div>
+
+    <section>
+        <h1>Brand Building</h1>
+    </section>
+</main>
+{% endblock content %}

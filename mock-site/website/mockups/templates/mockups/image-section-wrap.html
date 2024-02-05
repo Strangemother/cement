@@ -1,0 +1,29 @@
+{% load static %}
+<section>
+    <div class="image-info-container {{ classes }}">
+        <div class="image-container">
+            <img src="{% static image %}">
+            <div class="ai-watermark">
+                <span class="present-text">AI</span>
+                <div class="hover-text hidden">
+                   {% include "./ai-statement.html" %}
+                </div>
+            </div>
+        </div>
+        <div class="text-content-container">
+            <div class="text-content">
+                {% if wrap.content %}
+                    {{ wrap.content }}
+                {% else %}
+                    {# <p>{% lorem 20 w %}</p> #}
+                {% endif %}
+
+            </div>
+            {% if vote is not false %}
+                <!-- no voting container -->
+            {% else %}
+                {% include "./smokejumpers/vote-container.html" %}
+            {% endif %}
+        </div>
+    </div>
+</section>
