@@ -1,7 +1,6 @@
-import args
-from portland import log
+from portland import log, args
+from portland.loader import load_dir
 
-from loader import load_dir
 from pathlib import Path
 
 def main(**kw):
