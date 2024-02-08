@@ -11,6 +11,5 @@ def load_dir(path, module_name='portland.apps'):
         spec = importlib.util.spec_from_file_location(mn, filename)
         module = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(module)
-
         # Verify contents of the module:
         # print(module.__name__, dir(module))

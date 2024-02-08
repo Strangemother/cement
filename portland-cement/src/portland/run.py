@@ -1,7 +1,6 @@
-import args
-from portland import log
+from portland import log, args
+from portland.loader import load_dir
 
-from loader import load_dir
 from pathlib import Path
 
 def main(**kw):
@@ -51,6 +50,11 @@ def terminal_main(**kw):
     """
 
 
+    # Double parse the raw parser, collecting log level first.
+    parser = args.get_parser(False, add_help=False)
+    pargs = parser.parse_known_args()
+    log.configure_from_args(pargs[0])
+
     # Must run before the parser, else the parser cannot announce these items
     load_dir(HERE / 'commands/', module_name='portland.commands')
     # Configure the internal plugin parts.
@@ -59,7 +63,7 @@ def terminal_main(**kw):
     parser = args.get_parser()
     pargs = parser.parse_known_args()
 
-    log.configure_from_args(pargs[0])
+    # log.configure_from_args(pargs[0])
 
     log.i(f'terminal_main {pargs}')
 

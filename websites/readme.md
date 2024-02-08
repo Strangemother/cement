@@ -72,10 +72,3 @@ The site-wide menu should present this and the sub content for nav:
 
 They're proven to be delightful. Copy the structre for a demo of the css grid structuing.
 
-#### Personal Blog
-
-#### porthouse view
-
-#### Book store
-
-#### PS

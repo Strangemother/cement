@@ -18,7 +18,7 @@ def execute(ns):
     return in_env()
 
 
-print('Installing prehook')
+log.info('Installing prehook')
 register.add('pre_test_hook', execute)
 
 
