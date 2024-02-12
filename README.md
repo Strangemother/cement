@@ -14,7 +14,6 @@ The open source user terminal app and component aggregator; essentially a helper
 
 An active area to work upon integrated components - This includes page mockups.
 
-
 ---
 
 # Getting started

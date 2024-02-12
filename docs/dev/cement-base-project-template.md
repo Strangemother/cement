@@ -61,6 +61,18 @@ $> python manage.py migrate
 
 The imports should be company or _site_ specific
 
+## Readme
+
+Apply a `readme.md` file, with an expectation for the end-user to extend it.
+
++ Project Name
++ Owner
++ Description
++ Installation
+
+### Installation
+
+Include setup instructions for end-user to run the app. Include some scripts to help with this.
 
 ## Requirements.txt
 

@@ -1,13 +1,14 @@
 import argparse
 
-from portland import register
+from portland import register, messages
 
 
 def get_parser(subparsers=True, **kw):
-    parser = argparse.ArgumentParser(prog='Concrete',
+    parser = argparse.ArgumentParser(prog=messages.PROG,
                 fromfile_prefix_chars='@',
-                description='What the program does',
-                epilog='Text at the bottom of help',
+                description=messages.DESC,
+                epilog=messages.EPILOG,
+                formatter_class=argparse.RawTextHelpFormatter,
                 **kw,
                 )
 

@@ -4,7 +4,7 @@
 name = "portland-cement"
 # version = "0.1a"
 authors = [
-  { name="Strangemother", email="portland-cement@strangemother.com" },
+  { name="undefined", email="portland-cement@example.com" },
 ]
 description = "A Simple frontend buildout for wagtail projects"
 readme = "README.md"

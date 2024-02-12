@@ -1,0 +1,5 @@
+# https://pip.pypa.io/en/latest/reference/requirements-file-format/
+Django>=4.2,<4.3
+wagtail>=5.2,<5.3
+django-trim>=0.2
+-r cinderblock-requirements.txt

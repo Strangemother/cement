@@ -68,9 +68,10 @@ def terminal_main(**kw):
     log.i(f'terminal_main {pargs}')
 
     if hasattr(pargs[0], 'func'):
-        pargs[0].func(pargs)
-    else:
-        log.w(f'No function to execute for command: {pargs[0]}')
+        return pargs[0].func(pargs)
+
+    log.w(f'No function to execute for command: {pargs[0]}')
+    parser.print_help()
 
 if __name__ == '__main__':
     main()

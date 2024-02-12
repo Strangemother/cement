@@ -3,7 +3,7 @@
 Apply a file within this directory to _automatically_ collect and run within the same context. The module should install itself into the runtime portland hooks, such as the `pre_parser_subparsers` hook.
 
 
-## Getting Started
+## Creating Commands
 
 Create a file within the `commands/` directory; preferrably called something distinct to the functionality. We'll create a `run_command.py` to dumbly execute django-admin commands as a passthrough.
 
