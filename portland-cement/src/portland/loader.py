@@ -1,4 +1,10 @@
+"""A Dynamic import function to load modules from a folder using the importlib.
 
+    load_dir('./commands/')
+
+As this exists current context, the runtime is manipulated and any loaded
+modules register for later recall by the arguments executor.
+"""
 
 import sys
 import importlib.util

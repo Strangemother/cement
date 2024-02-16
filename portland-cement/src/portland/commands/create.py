@@ -44,6 +44,7 @@ register.add('pre_parser_subparsers', create_command_hook)
 
 class CinderblockCreateProject(WB.CreateProject):
     description = "Creates the directory structure for a new Cinderblock project."
+    template_version = 'v6'
 
     def __init__(self, namespace=None):
         self._namespace = namespace[0]
@@ -56,7 +57,7 @@ class CinderblockCreateProject(WB.CreateProject):
     def get_cinderblock_template_path(self):
         portland_path = self.get_cinderblock_template_dir()
         # Location of the internal project. Later this will be dyanmic.
-        sub_path = "wagtail/v5/project_template"
+        sub_path = f"wagtail/{self.template_version}/project_template"
         template_path = portland_path / sub_path
         return template_path
 
