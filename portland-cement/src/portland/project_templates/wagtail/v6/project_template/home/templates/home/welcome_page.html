@@ -1,4 +1,4 @@
-{% load i18n wagtailcore_tags static %}
+{% templatetag openblock %} load i18n wagtailcore_tags static {% templatetag closeblock %}
 
 <script>
     document.body.classList.add('animate-in');
@@ -17,10 +17,10 @@
 
 <main class="main">
     <div class="figure">
-        <img src="{% static 'images/cinderblock.png' %}" alt="large purple Cinderblock">
+        <img src="{% templatetag openblock %} static 'images/cinderblock.png' {% templatetag closeblock %}" alt="large purple Cinderblock">
     </div>
     <div class="main-text">
-        <h1>{% trans "Welcome to your new Cinderblock site!" %}</h1>
+        <h1>{% templatetag openblock %} trans "Welcome to your new Cinderblock site!" {% templatetag closeblock %}</h1>
         <p>sub content</p>
     </div>
 </main>
@@ -35,30 +35,30 @@
                 <li class="cinderblock-link">
                     <a class="" href="cinderblock/docs/">
                         {# doc icon #}
-                        <h2>{% trans "Cinderblock Documentation" %}</h2>
+                        <h2>{% templatetag openblock %} trans "Cinderblock Documentation" {% templatetag closeblock %}</h2>
                     </a>
                 </li>
 
                 <li class="wagtail-link">
-                    <a class="" href="{% wagtail_documentation_path %}/">
+                    <a class="" href="{% templatetag openblock %} wagtail_documentation_path {% templatetag closeblock %}/">
                         {# doc icon #}
-                        <h2>{% trans "Wagtail Documentation" %}</h2>
+                        <h2>{% templatetag openblock %} trans "Wagtail Documentation" {% templatetag closeblock %}</h2>
                     </a>
 
                     <ul>
                         <li>
-                            <a class="" href="{% wagtail_documentation_path %}/getting_started/tutorial.html">
+                            <a class="" href="{% templatetag openblock %} wagtail_documentation_path {% templatetag closeblock %}/getting_started/tutorial.html">
                                 {# tutorial icon  #}
-                                {% trans "Tutorial" %}:
-                                {% trans "Build your first Wagtail site" %}
+                                {% templatetag openblock %} trans "Tutorial" {% templatetag closeblock %}:
+                                {% templatetag openblock %} trans "Build your first Wagtail site" {% templatetag closeblock %}
                             </a>
                         </li>
                         <li>
-                            <a class="" href="{% wagtail_documentation_path %}/releases/{% wagtail_release_notes_path %}">
-                                {% comment %}
+                            <a class="" href="{% templatetag openblock %} wagtail_documentation_path {% templatetag closeblock %}/releases/{% templatetag openblock %} wagtail_release_notes_path {% templatetag closeblock %}">
+                                {% templatetag openblock %} comment {% templatetag closeblock %}
                                 This works for all cases but prerelease versions:
-                                {% endcomment %}
-                                {% trans "View the release notes" %}
+                                {% templatetag openblock %} endcomment {% templatetag closeblock %}
+                                {% templatetag openblock %} trans "View the release notes" {% templatetag closeblock %}
                             </a>
                         </li>
                     </ul>
@@ -68,7 +68,7 @@
                     <a class="" href="django-docs/">
                         {# doc icon #}
                         <div>
-                            <h2>{% trans "Django Documentation" %}</h2>
+                            <h2>{% templatetag openblock %} trans "Django Documentation" {% templatetag closeblock %}</h2>
 
                         </div>
                     </a>
@@ -78,14 +78,14 @@
         </li>
         <li class="admin-links">
             <h2>Admin Interfaces</h2>
-            <a class="wagtail-admin admin-link" href="{% url 'wagtailadmin_home' %}">
-                <h3>{% trans "Admin Interface" %}</h3>
-                <p>{% trans "Create your superuser first!" %}</p>
+            <a class="wagtail-admin admin-link" href="{% templatetag openblock %} url 'wagtailadmin_home' {% templatetag closeblock %}">
+                <h3>{% templatetag openblock %} trans "Admin Interface" {% templatetag closeblock %}</h3>
+                <p>{% templatetag openblock %} trans "Create your superuser first!" {% templatetag closeblock %}</p>
             </a>
 
-            <a class="django-admin admin-link" href="{% url 'admin:index' %}">
-                <h3>{% trans "CRUD Interface" %}</h3>
-                <p>{% trans "Create your superuser first!" %}</p>
+            <a class="django-admin admin-link" href="{% templatetag openblock %} url 'admin:index' {% templatetag closeblock %}">
+                <h3>{% templatetag openblock %} trans "CRUD Interface" {% templatetag closeblock %}</h3>
+                <p>{% templatetag openblock %} trans "Create your superuser first!" {% templatetag closeblock %}</p>
             </a>
         </li>
     </ul>

@@ -36,6 +36,10 @@ def create_command_hook(subparsers):
         help="The path or URL to load the template from.",
         default=None)
 
+    run_parser.add_argument('--template-version',
+        help="The release version of the template.",
+        default='latest')
+
     return run_parser
 
 log.d('Installing pre_parser_subparsers')
@@ -44,20 +48,28 @@ register.add('pre_parser_subparsers', create_command_hook)
 
 class CinderblockCreateProject(WB.CreateProject):
     description = "Creates the directory structure for a new Cinderblock project."
-    template_version = 'v6'
+    template_version = 'v5'
 
     def __init__(self, namespace=None):
         self._namespace = namespace[0]
         self.unknown_args = namespace[1]
         self.default_template_path = self.get_default_template_path()
+        self.version_map = {
+            'latest': 'v6'
+        }
 
     def get_default_template_path(self):
         return self.get_wagtail_template_path()
 
+    def get_release_version(self):
+        r = self._namespace.template_version or self.template_version
+        return self.version_map.get(r, r) or r
+
     def get_cinderblock_template_path(self):
         portland_path = self.get_cinderblock_template_dir()
         # Location of the internal project. Later this will be dyanmic.
-        sub_path = f"wagtail/{self.template_version}/project_template"
+        tv = self.get_release_version()
+        sub_path = f"wagtail/{tv}/project_template"
         template_path = portland_path / sub_path
         return template_path
 
