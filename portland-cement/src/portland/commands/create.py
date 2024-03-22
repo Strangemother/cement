@@ -42,11 +42,31 @@ def create_command_hook(subparsers):
 
     return run_parser
 
+
 log.d('Installing pre_parser_subparsers')
 register.add('pre_parser_subparsers', create_command_hook)
 
 
 class CinderblockCreateProject(WB.CreateProject):
+    """Extend the Wagtail CreateProject class to include
+    versioning and sub template install from a local or remote.
+
+    Functionally this is transparent to the original command:
+
+        wagtail create acme
+        cement create acme
+
+    However the template project is either collected from a local or remote
+    fetch:
+
+        wagtail create acme --template flask    # INVALID
+        cement create acme --template flask    # Fetch test
+
+    By default the cinderblock version defaults to _cinderblock_ template
+    (wagtail version 6)
+
+        cement create acme --template cinderblock --template-version latest
+    """
     description = "Creates the directory structure for a new Cinderblock project."
     template_version = 'v5'
 
@@ -102,7 +122,7 @@ class CinderblockCreateProject(WB.CreateProject):
             self.run(**options_dict)
 
         options_dict = vars(self._namespace)
-        self.run(**options_dict)
+        return self.run(**options_dict)
 
     def run(self, project_name=None, dest_dir=None, **options):
         # Make sure given name is not already in use by another python package/module.
@@ -154,6 +174,8 @@ class CinderblockCreateProject(WB.CreateProject):
             % {"project_name": project_name}
         )
 
+        return utility
+
     def discover_resolve_template_name(self, name=None, template=None):
         """Return a resolved template name. If `name` is given, assume a special
         terminal key. Attempt to resolve the _special_ name.
@@ -199,6 +221,7 @@ class CinderblockCreateProject(WB.CreateProject):
         # should include a version or subswitch: "flask@5.1" or flask>=5.1.0
         return name
 
+
 def create_command(ns):
     """In this raw functionality, the command runs the django admin (or wagtail admin.)
     """
@@ -217,10 +240,42 @@ def create_command(ns):
 
     If the entry signature changes, the `sys.argv` will need editing
     """
+
+    ## Test for env; if not, assert.
+
     ## template `wagtail\project_template\`
     proj_command = CinderblockCreateProject(ns)
-    proj_command.execute(props)
+    res = proj_command.execute(props)
 
+    # Ask to continue to `dev-first-install`
+    ## If 'dev-first-install' in project; ask (check switches.)
+    _ns = ns[0]
+    name = _ns.project_name
+    dest  = _ns.dest_dir or name
+    cwd = os.getcwd()
+    fp = Path(cwd) /  dest
+
+    if fp.exists():
+        df = fp / 'dev-first-install.py'
+        if df.exists():
+            print_run_command(ns, fp, df)
+    # return res
+
+def print_run_command(ns, project_root, dev_script_path, cwd=None):
+    cwd = cwd or os.getcwd()
+    rf = project_root.relative_to(cwd) #relative to cwd
+    l = ("\nFor first-time (dev) installs, run the given script: "
+        f"\n\n\t{dev_script_path}\n"
+        "\nUse the helper tool: Run this command within the root directory:"
+        f"\n\n\tcd {rf}"
+        "\n\tportland first-install"
+        )
+    print(l)
+
+
+
+# from trim.execute import read_one_stream_command as read_one
+# from portland.loader import load_module
 
 def tech_test(ns):
     """Perform any "pre_test_hook" functions _before_ the execute.

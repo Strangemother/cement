@@ -1,0 +1,7 @@
+{% templatetag openblock %} load wagtailcore_tags {% templatetag closeblock %}
+
+{% templatetag openblock %} for block in page.body {% templatetag closeblock %}
+    <section class="block-{% templatetag openvariable %} block.block_type {% templatetag closevariable %}">
+        {% templatetag openblock %} include_block block {% templatetag closeblock %}
+    </section>
+{% templatetag openblock %} endfor {% templatetag closeblock %}

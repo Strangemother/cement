@@ -1,0 +1,6 @@
+<div class="w-field" data-field data-contentpath="{% templatetag openvariable %} child.block.name {% templatetag closevariable %}">
+    {% templatetag openblock %} if child.block.label {% templatetag closeblock %}
+        <label class="w-field__label" {% templatetag openblock %} if child.id_for_label {% templatetag closeblock %}for="{% templatetag openvariable %} child.id_for_label {% templatetag closevariable %}"{% templatetag openblock %} endif {% templatetag closeblock %}>{% templatetag openvariable %} child.block.label {% templatetag closevariable %}{% templatetag openblock %} if child.block.required {% templatetag closeblock %}<span class="w-required-mark">*</span>{% templatetag openblock %} endif {% templatetag closeblock %}</label>
+    {% templatetag openblock %} endif {% templatetag closeblock %}
+    {% templatetag openvariable %} child.render_form {% templatetag closevariable %}
+</div>

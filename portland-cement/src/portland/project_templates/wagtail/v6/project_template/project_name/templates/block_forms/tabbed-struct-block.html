@@ -1,0 +1,113 @@
+{% templatetag openblock %} load wagtailadmin_tags  {% templatetag closeblock %}
+
+<div class="{% templatetag openvariable %} classname {% templatetag closevariable %}">
+    {% templatetag openblock %} if help_text {% templatetag closeblock %}
+        <span>
+            <div class="help">
+                {% templatetag openblock %} icon name="help" classname="default" {% templatetag closeblock %}
+                {% templatetag openvariable %} help_text {% templatetag closevariable %}
+            </div>
+        </span>
+    {% templatetag openblock %} endif {% templatetag closeblock %}
+
+    {% templatetag openblock %} with vals=children.values {% templatetag closeblock %}
+
+        <div class='block-tabs'>
+            <a onclick="toggleTab(event)"
+                href="javascript:;"
+                class='selected' data-group='default'>Content</a>
+            <a onclick="toggleTab(event)"
+                href="javascript:;"
+                class='' data-group='secondary'>Extras</a>
+        </div>
+
+        <div class="field-group group-default display-show">
+            {# <h3>Default</h3> #}
+            {% templatetag openblock %} for child in vals {% templatetag closeblock %}
+                {% templatetag openblock %} if child.block.meta.group != 'secondary' {% templatetag closeblock %}
+                    {% templatetag openblock %} include "./struct-block-field.html" with child=child {% templatetag closeblock %}
+                {% templatetag openblock %} endif {% templatetag closeblock %}
+            {% templatetag openblock %} endfor {% templatetag closeblock %}
+        </div>
+
+        <div class="field-group group-secondary display-hidden">
+            {# <h3>Styles</h3> #}
+            {% templatetag openblock %} for child in vals {% templatetag closeblock %}
+                {% templatetag openblock %} if child.block.meta.group == 'secondary' {% templatetag closeblock %}
+                    {% templatetag openblock %} include "./struct-block-field.html" with child=child {% templatetag closeblock %}
+                {% templatetag openblock %} endif {% templatetag closeblock %}
+            {% templatetag openblock %} endfor {% templatetag closeblock %}
+        </div>
+
+        <script>
+            function toggleTab(event) {
+                var t = event.currentTarget;
+                let tabsContainer = t.parentElement
+                let container = t.parentElement.parentElement.parentElement
+                let type = t.dataset.group
+
+                tabsContainer
+                    .querySelectorAll('a')
+                    .forEach(function(e, i, a){
+                        e.classList.remove('selected');
+                    })
+                    ;
+                t.classList.add('selected')
+
+                // Hide all tabs.
+                container
+                    .querySelectorAll('.field-group')
+                    .forEach(function(e, i, a){
+                        e.classList.remove('display-show');
+                        e.classList.add('display-hidden');
+                    })
+                    ;
+                // Get all groups with the class name. matching the dataset
+                // group.
+                container
+                    .querySelectorAll(`.field-group.group-${type}`)
+                    .forEach(function(e, i, a){
+                        e.classList.remove('display-hidden');
+                        e.classList.add('display-show');
+                    })
+                    ;
+
+            }
+        </script>
+
+        <style type="text/css">
+            .block-tabs {
+                display: flex;
+                gap: .5em;
+                margin-bottom: 1em;
+            }
+            .field-group.display-show {
+                display: initial;
+            }
+
+            .field-group.display-hidden {
+                display: none;
+            }
+
+            .block-tabs a {
+                color: var(--w-color-text-link-default);
+                background: #222;
+                padding: 0em 0.9em 0.1em;
+                display: inline-flex;
+                border-radius: 1em;
+            }
+
+            .block-tabs a:hover {
+                text-decoration: underline;
+            }
+
+            .block-tabs a.selected {
+                background: #111;
+                color: var(--w-color-text-button);
+                /*text-decoration: underline;*/
+            }
+
+        </style>
+
+    {% templatetag openblock %} endwith {% templatetag closeblock %}
+</div>
